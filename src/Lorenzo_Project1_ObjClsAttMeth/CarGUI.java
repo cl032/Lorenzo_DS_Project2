@@ -4,7 +4,9 @@
 ***  Class Author:  Chris Lorenzo
 ******************************************************
 * This class serves as the GUI to create and use
-* objects from the car class
+* objects from the car class.  It serves as a user
+* interface to create and drive a car using built in
+* controls.
 ******************************************************
 *** Date: 13 September 2017
 ******************************************************
@@ -14,6 +16,8 @@
 package Lorenzo_Project1_ObjClsAttMeth;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -26,7 +30,6 @@ public class CarGUI extends javax.swing.JFrame {
      */
     public CarGUI() {
         initComponents();
-       
     }
 
     /**
@@ -46,7 +49,6 @@ public class CarGUI extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtMake = new javax.swing.JTextField();
         txtModel = new javax.swing.JTextField();
-        txtColor = new javax.swing.JTextField();
         btnCreateCar = new javax.swing.JButton();
         lblStatusMsg = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -63,7 +65,14 @@ public class CarGUI extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         lblMake = new javax.swing.JLabel();
         lblModel = new javax.swing.JLabel();
-        lblColor = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        radButRed = new javax.swing.JRadioButton();
+        radButOrange = new javax.swing.JRadioButton();
+        radButBlue = new javax.swing.JRadioButton();
+        radButBlack = new javax.swing.JRadioButton();
+        radButGreen = new javax.swing.JRadioButton();
+        radButYellow = new javax.swing.JRadioButton();
+        btnColor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JOY RIDE - THE GAME");
@@ -88,12 +97,10 @@ public class CarGUI extends javax.swing.JFrame {
 
         txtMake.setNextFocusableComponent(txtModel);
 
-        txtModel.setNextFocusableComponent(txtColor);
-
-        txtColor.setNextFocusableComponent(btnCreateCar);
+        txtModel.setNextFocusableComponent(radButRed);
 
         btnCreateCar.setText("Create Car");
-        btnCreateCar.setNextFocusableComponent(btnGas);
+        btnCreateCar.setNextFocusableComponent(txtName);
         btnCreateCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateCarActionPerformed(evt);
@@ -165,81 +172,163 @@ public class CarGUI extends javax.swing.JFrame {
         lblModel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblModel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblColor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblColor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel1.setNextFocusableComponent(btnCreateCar);
+
+        radButRed.setText("Red");
+        radButRed.setNextFocusableComponent(radButOrange);
+        radButRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButRedActionPerformed(evt);
+            }
+        });
+
+        radButOrange.setText("Orange");
+        radButOrange.setNextFocusableComponent(radButBlue);
+        radButOrange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButOrangeActionPerformed(evt);
+            }
+        });
+
+        radButBlue.setText("Blue");
+        radButBlue.setNextFocusableComponent(radButBlack);
+        radButBlue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButBlueActionPerformed(evt);
+            }
+        });
+
+        radButBlack.setText("Black");
+        radButBlack.setNextFocusableComponent(radButGreen);
+        radButBlack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButBlackActionPerformed(evt);
+            }
+        });
+
+        radButGreen.setText("Green");
+        radButGreen.setNextFocusableComponent(radButYellow);
+        radButGreen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButGreenActionPerformed(evt);
+            }
+        });
+
+        radButYellow.setText("Yellow");
+        radButYellow.setNextFocusableComponent(btnCreateCar);
+        radButYellow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radButYellowActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radButRed)
+                    .addComponent(radButOrange)
+                    .addComponent(radButBlue)
+                    .addComponent(radButBlack)
+                    .addComponent(radButGreen)
+                    .addComponent(radButYellow))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(radButRed)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radButOrange)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radButBlue)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radButBlack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radButGreen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radButYellow)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblStatusMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(269, 269, 269)
+                                .addComponent(jLabel1)
+                                .addGap(61, 61, 61)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(222, 222, 222)
-                                        .addComponent(lblSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(6, 6, 6)))
-                                .addGap(40, 40, 40))
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel11)))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblMake, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblModel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
                                 .addGap(26, 26, 26)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMake, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCreateCar))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStatusMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(40, 40, 40)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(74, 74, 74)
+                                        .addComponent(jLabel8)
+                                        .addGap(67, 67, 67)))
+                                .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnBrake, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnGas, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMake, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnCreateCar)
-                                        .addGap(4, 4, 4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8)
-                                .addGap(110, 110, 110))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(80, 80, 80)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblMake, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblModel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                        .addComponent(lblColor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBrake, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnGas, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(102, 102, 102))))))
+                                        .addComponent(jLabel14)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnColor, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,38 +337,11 @@ public class CarGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblMake, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14)))
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel8))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(21, 21, 21)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -294,15 +356,42 @@ public class CarGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMake, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(btnColor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCreateCar)
                             .addComponent(btnGas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBrake, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(lblStatusMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                            .addComponent(btnBrake, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblStatusMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)))
+                .addGap(18, 18, 18)
+                .addComponent(btnCreateCar)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -334,43 +423,50 @@ public class CarGUI extends javax.swing.JFrame {
     
     private void btnCreateCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCarActionPerformed
         // TODO add your handling code here:
+        
         //Place user input into vars to instantiate a new Car object
         name = txtName.getText();
         make = txtMake.getText();
         model = txtModel.getText();
-        color = txtColor.getText();
 
-        if(name.length() > 0 && make.length() > 0 && model.length() > 0 && color.length() > 0)
+        //Test to ensure input values are not empty
+        if(name.length() > 0 && make.length() > 0 && model.length() > 0 && color != null)
         {
-            try
-            {   
-                userCar = new Car(name, make, model, color);
-                userPresent = true;
-            }
-            catch (NumberFormatException e) //Catch empty values
-            {   
-                msg("input values are invalid, please try again");
-            }
-            
-            //Transfer user input to labels
-            lblName.setText(userCar.getName());
-            lblMake.setText(userCar.getMake());
-            lblModel.setText(userCar.getModel());
-            lblColor.setText(userCar.getColor());
-            
-            //Clear user input
-            txtName.setText("");
-            txtMake.setText("");
-            txtModel.setText("");
-            txtColor.setText("");
+                try
+                {   
+                    userCar = new Car(name, make, model, color);        //Send user input values to Car constructor
+                    userPresent = true;                                 //If constructor succeeds, change boolean value to true for follow on tests
 
-            //Display confirmation msg and enable controls
-            msg("Welcome " + userCar.getName() + ", drive it like you stole it!!!" );
-            btnCreateCar.setEnabled(false);
-            btnGas.setEnabled(true);
-            btnBrake.setEnabled(true);
-            //Place focus on Accelate button
-            btnGas.requestFocus();
+                    //Transfer user input to labels
+                    lblName.setText(userCar.getName());
+                    lblMake.setText(userCar.getMake());
+                    lblModel.setText(userCar.getModel());
+                    btnColor.setBackground(userCar.getColor());
+
+                    //Clear user input
+                    txtName.setText("");
+                    txtMake.setText("");
+                    txtModel.setText("");
+                    
+                    radButRed.setEnabled(false);
+                    radButOrange.setEnabled(false);
+                    radButBlue.setEnabled(false);
+                    radButBlack.setEnabled(false);
+                    radButGreen.setEnabled(false);
+                    radButYellow.setEnabled(false);
+
+                    //Display confirmation msg and enable controls
+                    msg("Welcome " + userCar.getName() + ", drive it like you stole it!!!" );
+                    btnCreateCar.setEnabled(false);
+                    btnGas.setEnabled(true);
+                    btnBrake.setEnabled(true);
+                    //Place focus on Accelate button
+                    btnGas.requestFocus();
+                }
+                catch (NumberFormatException e) //Catch empty values
+                {   
+                    msg("input values are invalid, please try again");
+                }
         }
         else
         {
@@ -401,8 +497,7 @@ public class CarGUI extends javax.swing.JFrame {
 ******************************************************
 *** Changes: N/A
 ******************************************************
-*/
-    
+*/   
     private void btnGasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGasActionPerformed
         // TODO add your handling code here:
         
@@ -437,6 +532,12 @@ public class CarGUI extends javax.swing.JFrame {
         {
             msg("Ok, you've been warned");  //GUI Feedback for entertainment purposes
         }
+        
+        if(userCar.speed > 200)
+        {
+            msg("You're Nuts!!! Absolutely NUTTSSS!!!");  //GUI Feedback for entertainment purposes
+        }     
+        
     }//GEN-LAST:event_btnGasActionPerformed
 
 /**
@@ -463,8 +564,7 @@ public class CarGUI extends javax.swing.JFrame {
 ******************************************************
 *** Changes: N/A
 ******************************************************
-*/
-    
+*/    
     private void btnBrakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrakeActionPerformed
         // TODO add your handling code here:
         //Clear previous msg
@@ -501,14 +601,261 @@ public class CarGUI extends javax.swing.JFrame {
 *** Changes: N/A
 ******************************************************
 */    
-   
     private void btnCreateCarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCreateCarKeyPressed
         // TODO add your handling code here:
-        
         btnCreateCar.doClick(); //Respond to enter key and exec code to create car profile
-        
     }//GEN-LAST:event_btnCreateCarKeyPressed
 
+/**
+******************************************************
+***  Method Name: radButRedActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/
+    private void radButRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButRedActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Red");
+        color = new Color(255,0,0);
+    }//GEN-LAST:event_radButRedActionPerformed
+
+/**
+******************************************************
+***  Method Name: radButOrangeActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/
+    private void radButOrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButOrangeActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Orange");
+        color = new Color(255,165,0);
+    }//GEN-LAST:event_radButOrangeActionPerformed
+
+/**
+******************************************************
+***  Method Name: radButBlueActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/
+    private void radButBlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButBlueActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Blue");
+        color = new Color(0,0,255);
+    }//GEN-LAST:event_radButBlueActionPerformed
+
+/**
+******************************************************
+***  Method Name: radButBlackActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/    
+    private void radButBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButBlackActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Black");
+        color = new Color(0,0,0);
+    }//GEN-LAST:event_radButBlackActionPerformed
+
+/**
+******************************************************
+***  Method Name: radButGreenActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/    
+    private void radButGreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButGreenActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Green");
+        color = new Color(0,255,0);
+    }//GEN-LAST:event_radButGreenActionPerformed
+
+/**
+******************************************************
+***  Method Name: radButYellowActionPerformed.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method responds to the user's selection via radio
+*   button and calls the uncheckOtherButtons() method,
+*   passing a string value of the color to use in the methods
+*   switch statement to un-check all the other buttons.
+*   This method also instantiates a new color object 
+*   using the color values of the string representation,
+*   and assigns it the color variable to pass to the constructor.
+* 
+*   Method Inputs:
+*   — ActionEvent
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/    
+    private void radButYellowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radButYellowActionPerformed
+        // TODO add your handling code here:
+        uncheckOtherButtons("Yellow");
+        color = new Color(255,255,0);
+    }//GEN-LAST:event_radButYellowActionPerformed
+
+    
+/**
+******************************************************
+***  Method Name: uncheckOtherButtons.
+***  Method Author:  Chris Lorenzo
+******************************************************
+*   This method serves to un-check all other radio
+*   buttons when the user makes a radio button selection,
+*   using a switch statement.
+* 
+*   Method Inputs:
+*   — One String var to hold the switch test value
+*   Return Value:
+*   — None
+* 
+******************************************************
+*** Date: 19 September 2017
+******************************************************
+*** Changes: N/A
+******************************************************
+*/     
+    private void uncheckOtherButtons(String color)
+    {
+        
+        switch (color)  {       //Perform selected statements when the case value matches the color var
+            case "Red":
+                radButOrange.setSelected(false);
+                radButBlue.setSelected(false);
+                radButBlack.setSelected(false);
+                radButGreen.setSelected(false);
+                radButYellow.setSelected(false);
+                break;
+            case "Orange":
+                radButRed.setSelected(false);
+                radButBlue.setSelected(false);
+                radButBlack.setSelected(false);
+                radButGreen.setSelected(false);
+                radButYellow.setSelected(false);
+                break;
+            case "Blue":
+                radButOrange.setSelected(false);
+                radButRed.setSelected(false);
+                radButBlack.setSelected(false);
+                radButGreen.setSelected(false);
+                radButYellow.setSelected(false);
+                break;
+            case "Black":
+                radButOrange.setSelected(false);
+                radButBlue.setSelected(false);
+                radButRed.setSelected(false);
+                radButGreen.setSelected(false);
+                radButYellow.setSelected(false);
+                break;
+            case "Green":
+                radButOrange.setSelected(false);
+                radButBlue.setSelected(false);
+                radButBlack.setSelected(false);
+                radButRed.setSelected(false);
+                radButYellow.setSelected(false);
+                break;
+            case "Yellow":
+                radButOrange.setSelected(false);
+                radButBlue.setSelected(false);
+                radButBlack.setSelected(false);
+                radButGreen.setSelected(false);
+                radButRed.setSelected(false);
+                break;
+        }
+        
+    }
 /**
 ******************************************************
 ***  Method Name: msg.
@@ -574,12 +921,13 @@ public class CarGUI extends javax.swing.JFrame {
     Car userCar;                    //Create new Car var
     private String name;            //Var to hold car name
     private String make;            //var to hold car make
-    private String model;           //var to hold car model
-    private String color;           //var to hold car color
+    private String model;                   //var to hold car model
     private boolean userPresent = false;    //var to verify if all inputs are entered
+    private Color color;                    //Var to hold color selected by user to place in constructor
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrake;
+    private javax.swing.JButton btnColor;
     private javax.swing.JButton btnCreateCar;
     private javax.swing.JButton btnGas;
     private javax.swing.JLabel jLabel1;
@@ -595,13 +943,18 @@ public class CarGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblColor;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMake;
     private javax.swing.JLabel lblModel;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblSpeed;
     private javax.swing.JLabel lblStatusMsg;
-    private javax.swing.JTextField txtColor;
+    private javax.swing.JRadioButton radButBlack;
+    private javax.swing.JRadioButton radButBlue;
+    private javax.swing.JRadioButton radButGreen;
+    private javax.swing.JRadioButton radButOrange;
+    private javax.swing.JRadioButton radButRed;
+    private javax.swing.JRadioButton radButYellow;
     private javax.swing.JTextField txtMake;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtName;

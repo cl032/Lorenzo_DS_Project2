@@ -13,22 +13,34 @@
 */
 package Lorenzo_Project1_ObjClsAttMeth;
 
+import java.awt.Color;
+import static javafx.scene.paint.Color.rgb;
+
 /**
  *
  * @author HR1
  */
 public class Car {
     
+//    public String colorString = "10,10,255";
+//    Color customColor = new Color(Integer.parseInt(colorString));
+    
+//    Color customColor = new Color(10,10,255);
+    
+    
     //Class properties
     private String name;
     private String make;
     private String model;
-    private String color;
+    private Color color;
     public int speed;
     
     //Class constructor
-    public Car(String name, String make, String model, String color)
+//    public Car(String name, String make, String model, String color)
+    public Car(String name, String make, String model, Color color)
     {
+//        Color carColor = new Color(Integer.parseInt(color));
+        
         this.name = name;
         this.make = make;
         this.model = model;
@@ -66,14 +78,14 @@ public class Car {
         this.model = model;
     }
     
-    public String getColor()        //Method to get Car's Color
+    public Color getColor()        //Method to get Car's Color
     {
         return color;
     }
     
-    public void setColor(String color)      //Method to set Car's color
+    public Color setColor(Color color)      //Method to set Car's color
     {
-        this.color = model;
+        return color;
     }
     
     public int getSpeed()       //Method to get Car's speed
