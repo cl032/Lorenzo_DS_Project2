@@ -22,12 +22,6 @@ import static javafx.scene.paint.Color.rgb;
  */
 public class Car {
     
-//    public String colorString = "10,10,255";
-//    Color customColor = new Color(Integer.parseInt(colorString));
-    
-//    Color customColor = new Color(10,10,255);
-    
-    
     //Class properties
     private String name;
     private String make;
@@ -36,11 +30,8 @@ public class Car {
     public int speed;
     
     //Class constructor
-//    public Car(String name, String make, String model, String color)
     public Car(String name, String make, String model, Color color)
-    {
-//        Color carColor = new Color(Integer.parseInt(color));
-        
+    {  
         this.name = name;
         this.make = make;
         this.model = model;
